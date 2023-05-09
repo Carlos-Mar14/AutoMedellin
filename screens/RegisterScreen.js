@@ -28,40 +28,62 @@ export default function RegisterScreen({ navigation }) {
   }
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text style={{ marginBottom: 10 }}>Registro</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Registro</Text>
       <TextInput
         label="Nombre"
         mode='outlined'
         onChangeText={name => setName(name)}
         value={name}
-        left={<TextInput.Icon icon="account" />}
+        left={<TextInput.Icon name="account" />}
+        style={styles.input}
       />
       <TextInput
-        style={{ marginTop: 10 }}
         label="Usuario"
         mode='outlined'
         onChangeText={username => setUsername(username)}
         value={username}
-        left={<TextInput.Icon icon="account" />}
+        left={<TextInput.Icon name="account" />}
+        style={styles.input}
       />
       <TextInput
-        style={{ marginTop: 10, marginBottom: 10 }}
         label="Contraseña"
         mode='outlined'
         onChangeText={password => setPassword(password)}
         value={password}
         secureTextEntry
-        right={<TextInput.Icon icon="eye" />}
+        right={<TextInput.Icon name="eye" />}
+        style={styles.input}
       />
       <Button 
         icon="account-plus" 
         mode="contained" 
-        onPress={handleRegister}>
+        onPress={handleRegister}
+        style={styles.button}
+      >
         Registrar
       </Button>
     </View>
   );
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  title: {
+    marginBottom: 10,
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  input: {
+    marginTop: 10,
+    width: '80%',
+  },
+  button: {
+    marginTop: 20,
+    width: '50%',
+  },
+});

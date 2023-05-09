@@ -8,9 +8,10 @@ export default function LoginScreen({ navigation, route }) {
   const [password, setPassword] = useState('');
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text style={{ marginBottom: 10 }}>Inicio de Sesión</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Inicio de Sesión</Text>
       <TextInput
+        style={styles.input}
         label="Usuario"
         mode='outlined'
         onChangeText={username => setUsername(username)}
@@ -18,7 +19,7 @@ export default function LoginScreen({ navigation, route }) {
         left={<TextInput.Icon icon="account" />}
       />
       <TextInput
-        style={{ marginTop: 10, marginBottom: 10 }}
+        style={styles.input}
         label="Contraseña"
         mode='outlined'
         onChangeText={password => setPassword(password)}
@@ -59,4 +60,17 @@ export default function LoginScreen({ navigation, route }) {
   );
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  title: {
+    marginBottom: 10
+  },
+  input: {
+    marginTop: 10,
+    marginBottom: 10
+  }
+});
